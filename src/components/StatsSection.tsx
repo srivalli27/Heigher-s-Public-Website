@@ -3,10 +3,10 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useCountUp } from '@/hooks/useCountUp';
 
 const stats = [
-  { value: 150, label: 'Members', suffix: '+' },
-  { value: 25, label: 'Events Hosted', suffix: '' },
-  { value: 12, label: 'Tournaments Won', suffix: '' },
-  { value: 5, label: 'Active Teams', suffix: '' },
+  { value: 17, label: 'Events Hosted', suffix: '+' },
+  { value: 11900, label: 'Total Participants', suffix: '+' },
+  { value: 200000, label: 'Prize Pool Distributed', suffix: '+' },
+  { value: 4, label: 'Active Community', suffix: '+ Years' },
 ];
 
 function StatItem({ value, label, suffix, isVisible, index }: { value: number; label: string; suffix: string; isVisible: boolean; index: number }) {
@@ -53,7 +53,7 @@ export function StatsSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 md:py-32 border-y border-border relative overflow-hidden">
+    <section className="py-24 md:py-32 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
         className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
@@ -72,6 +72,26 @@ export function StatsSection() {
         transition={{ duration: 8, repeat: Infinity, delay: 1 }}
       />
       
+        <div ref={ref} className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="section-heading"
+          >
+            Our Impact
+          </motion.span>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl md:text-5xl font-heading font-bold mt-4"
+          >
+            The <span className="text-primary">Scale</span> of Heighers
+          </motion.h2>
+        </div>
+
       <div className="container px-4 relative z-10">
         <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {stats.map((stat, index) => (

@@ -1,27 +1,47 @@
 import { motion } from 'framer-motion';
-import { Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Instagram, Linkedin, Mail } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const team = [
   {
-    name: 'ABC',
-    role: 'President',
-    initial: 'A',
+    name: 'Pranav R',
+    role: 'Secretary',
+    image: '/pranav.jpg',
+    socials: {
+      insta: 'https://www.instagram.com/',
+      linkedin: 'https://www.linkedin.com/in/pranav-r-2689472bb/',
+      mail: 'esports.club@study.iitm.ac.in',
+    },
   },
   {
-    name: 'XYZ',
-    role: 'Vice President',
-    initial: 'X',
+    name: 'Mohit Kishore',
+    role: 'Deputy Secretary',
+    image: '/mohit.jpg',
+    socials: {
+      insta: 'https://www.instagram.com/',
+      linkedin: 'https://www.linkedin.com/in/mohitkishorr/',
+      mail: 'esports.club@study.iitm.ac.in',
+    },
   },
   {
-    name: 'PQR',
-    role: 'Team Captain',
-    initial: 'P',
+    name: 'Rachit Agarwal',
+    role: 'Coordinator',
+    image: '/rachit.jpg',
+    socials: {
+      insta: 'https://www.instagram.com/',
+      linkedin: 'https://www.linkedin.com/in/rachit-agarwal-24b271346/',
+      mail: 'heighers-core@study.iitm.ac.in',
+    },
   },
   {
-    name: 'LMN',
-    role: 'Events Head',
-    initial: 'L',
+    name: 'Divyanshu Singh',
+    role: 'Coordinator',
+    image: '/divyanshu.jpg',
+    socials: {
+      insta: 'https://www.instagram.com/',
+      linkedin: 'https://www.linkedin.com/in/divyannshusingh/',
+      mail: 'heighers-core@study.iitm.ac.in',
+    },
   },
 ];
 
@@ -106,12 +126,20 @@ export function TeamSection() {
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   />
-                  <motion.span 
-                    className="font-heading font-bold text-4xl text-muted-foreground group-hover:text-primary transition-colors relative z-10"
-                    whileHover={{ scale: 1.2 }}
-                  >
-                    {member.initial}
-                  </motion.span>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover relative z-10"
+                    onError={(e) => {
+                      // Fallback to initial if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.parentElement!.querySelector('.initial-fallback')!.classList.remove('hidden');
+                    }}
+                  />
+                  {/* Fallback Initial */}
+                  <span className="initial-fallback hidden font-heading font-bold text-4xl text-muted-foreground group-hover:text-primary transition-colors relative z-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    {member.name.charAt(0)}
+                  </span>
                 </div>
               </motion.div>
               
@@ -138,17 +166,25 @@ export function TeamSection() {
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1 }}
               >
-                {[Instagram, Linkedin, Twitter].map((Icon, i) => (
-                  <motion.a 
-                    key={i}
-                    href="#" 
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                    whileHover={{ scale: 1.3, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Icon size={18} />
-                  </motion.a>
-                ))}
+                {member.socials && Object.entries(member.socials).map(([platform, url], i) => {
+                  let Icon = Mail;
+                  if (platform === 'insta') Icon = Instagram;
+                  if (platform === 'linkedin') Icon = Linkedin;
+                  
+                  return (
+                    <motion.a 
+                      key={i}
+                      href={url} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      whileHover={{ scale: 1.3, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Icon size={18} />
+                    </motion.a>
+                  );
+                })}
               </motion.div>
             </motion.div>
           ))}

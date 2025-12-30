@@ -53,7 +53,7 @@ export function ContactSection() {
           >
             <Mail className="w-5 h-5" />
             <a href="mailto:heighers@smail.iitm.ac.in" className="hover:text-primary transition-colors">
-              heighers@smail.iitm.ac.in
+              esports.club@study.iitm.ac.in
             </a>
           </motion.div>
 

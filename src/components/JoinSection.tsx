@@ -37,9 +37,9 @@ export function JoinSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted-foreground text-lg mb-10"
           >
-            Whether you're a seasoned pro or just starting out, Heighers Esports 
-            welcomes all who share our passion for competitive gaming. Join us 
-            and be part of something elite.
+            Whether you're a competitive player or a gaming enthusiast, Heighers eSports welcomes everyone who wants 
+            to be part of the IIT Madras BS esports community. Participate in tournaments, help organize events, 
+            and contribute to one of the largest student-led gaming platforms in the BS ecosystem.
           </motion.p>
 
           <motion.div
@@ -47,9 +47,11 @@ export function JoinSection() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Button variant="default" size="xl" className="group">
-              Apply Now
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button variant="default" size="xl" className="group" asChild>
+              <a href="https://url.heighers.in/membership" target="_blank" rel="noopener noreferrer">
+                Apply Now
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </motion.div>
         </div>

@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-export function AboutSection() {
+export function VisionSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
@@ -14,17 +14,16 @@ export function AboutSection() {
             transition={{ duration: 0.6 }}
             className="section-heading"
           >
-            About Us
+            Our Vision and Thought
           </motion.span>
-
+          
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl font-heading font-bold mt-4 mb-8"
           >
-            The <span className="text-primary">Competitive Gaming Hub</span> of <br></br>
-            IIT Madras BS
+            The <span className="text-primary">Competetive Gaming Hub</span> of IIT Madras BS
           </motion.h2>
 
           <motion.p
@@ -33,10 +32,10 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8"
           >
-            Heighers Esports is the official esports and competitive gaming
-            society of IIT Madras BS. We organize large-scale tournaments and
-            competitive events that bring together gamers from across the BS
-            ecosystem.
+            Heighers eSports Society aims to build a diverse and inclusive gaming community where students from different 
+            backgrounds can come together through competitive gaming.
+
+
           </motion.p>
 
           <motion.p
@@ -45,10 +44,8 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8"
           >
-            Over the years, we've hosted 17+ events with 11,000+ participants,
-            playing a central role in shaping esports culture at IIT Madras BS.
-            From casual gamers to serious competitors, Heighers provides a
-            platform to compete, improve, and make their mark.
+            We value fair play, respect, teamwork, and sportsmanship, and strive to create an environment that encourages 
+            continuous improvement through participation and competition.
           </motion.p>
 
           <motion.p
@@ -57,7 +54,9 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-muted-foreground text-base leading-relaxed"
           >
-            We focus on structured competition, fair play, and long-term growth on and off the screen.
+            At Heighers, excellence is achieved not through formal training, but through exposure, experience, 
+            and community-driven growth.
+
           </motion.p>
         </div>
       </div>

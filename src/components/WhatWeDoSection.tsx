@@ -5,23 +5,23 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 const features = [
   {
     icon: Gamepad2,
-    title: 'Competitive Esports',
-    description: 'Representing IIT Madras in major esports tournaments across multiple titles.',
+    title: 'Esports Events',
+    description: 'Hosting structured esports tournaments and competitive events across multiple gaming titles with large-scale participation.',
   },
   {
     icon: Target,
-    title: 'Training & Development',
-    description: 'Structured practice sessions, strategy analysis, and skill enhancement programs.',
+    title: 'Flagship Competitions',
+    description: 'Organizing major pan-BS esports events that attract hundreds of participants and showcase competitive talent across the ecosystem.',
   },
   {
     icon: Trophy,
-    title: 'Tournaments & Events',
-    description: 'Organizing intra-college competitions and hosting large-scale gaming events.',
+    title: 'Community Platform',
+    description: 'Providing a space for gamers to connect, collaborate, and engage with the esports community beyond individual events.',
   },
   {
     icon: Users,
-    title: 'Community Building',
-    description: 'Creating a vibrant gaming community that supports and elevates each player.',
+    title: 'Competitive Exposure',
+    description: 'Enabling students to experience high-pressure competitive environments through tournaments rather than structured training programs.',
   },
 ];
 
@@ -67,7 +67,7 @@ export function WhatWeDoSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl font-heading font-bold mt-4"
           >
-            Our <span className="text-primary">Mission</span>
+            What we <span className="text-primary">Enable</span>
           </motion.h2>
         </div>
 

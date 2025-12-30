@@ -105,7 +105,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-muted-foreground text-sm md:text-base uppercase tracking-[0.3em] mb-2"
         >
-          IIT Madras Official Esports Society
+          IIT Madras BS Official Esports Society
         </motion.p>
 
         {/* Tagline */}
@@ -144,7 +144,7 @@ export function HeroSection() {
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button variant="hero" size="xl" asChild>
-              <a href="#about">Learn More</a>
+              <a href="#events">View Events</a>
             </Button>
           </motion.div>
         </motion.div>
