@@ -6,11 +6,12 @@ const stats = [
   { value: 17, label: 'Events Hosted', suffix: '+' },
   { value: 11900, label: 'Total Participants', suffix: '+' },
   { value: 200000, label: 'Prize Pool Distributed', suffix: '+' },
-  { value: 4, label: 'Active Community', suffix: '+ Years' },
+  { value: 14, label: 'Game Titles', suffix: '+' },
+  // { value: null, label: 'IITs, IIMs & Universities', suffix: 'Pan India' },
 ];
 
-function StatItem({ value, label, suffix, isVisible, index }: { value: number; label: string; suffix: string; isVisible: boolean; index: number }) {
-  const count = useCountUp(value, 2000, isVisible);
+function StatItem({ value, label, suffix, isVisible, index }: { value: number | null; label: string; suffix: string; isVisible: boolean; index: number }) {
+  const count = useCountUp(value ?? 0, 2000, isVisible);
 
   return (
     <motion.div
@@ -34,7 +35,7 @@ function StatItem({ value, label, suffix, isVisible, index }: { value: number; l
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
         >
-          {count}{suffix}
+          {value !== null ? count : ""}{suffix}
         </motion.span>
       </motion.div>
       <motion.div 
@@ -93,16 +94,17 @@ export function StatsSection() {
         </div>
 
       <div className="container px-4 relative z-10">
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+        <div ref={ref} className="flex flex-wrap justify-center gap-8 md:gap-12">
           {stats.map((stat, index) => (
-            <StatItem
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              suffix={stat.suffix}
-              isVisible={isVisible}
-              index={index}
-            />
+            <div key={stat.label} className="w-[45%] md:w-[30%] lg:w-[18%] flex justify-center">
+              <StatItem
+                value={stat.value}
+                label={stat.label}
+                suffix={stat.suffix}
+                isVisible={isVisible}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </div>

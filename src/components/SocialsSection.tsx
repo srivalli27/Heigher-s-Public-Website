@@ -74,17 +74,16 @@ export function SocialsSection() {
               animate={isVisible ? { opacity: 1, scale: 1 } : {}}
               transition={{ 
                 duration: 0.5, 
-                delay: 0.3 + index * 0.1,
+                delay: 0.1 * index,
                 type: "spring",
                 stiffness: 200
               }}
               whileHover={{ 
-                scale: 1.2, 
-                rotate: [0, -10, 10, 0],
-                transition: { duration: 0.3 }
+                scale: 1.1,
+                y: -5
               }}
               whileTap={{ scale: 0.9 }}
-              className={`group w-16 h-16 md:w-20 md:h-20 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground transition-all duration-300 ${social.color}`}
+              className={`group w-16 h-16 md:w-20 md:h-20 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground ${social.color}`}
               aria-label={social.name}
             >
               <social.icon className="w-7 h-7 md:w-8 md:h-8" />

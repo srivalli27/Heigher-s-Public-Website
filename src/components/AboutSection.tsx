@@ -5,7 +5,7 @@ export function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-secondary/20">
+    <section id="about" className="py-16 md:py-28 bg-secondary/20">
       <div className="container px-4">
         <div ref={ref} className="max-w-4xl mx-auto text-center">
           <motion.span

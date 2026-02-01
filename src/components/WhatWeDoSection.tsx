@@ -49,7 +49,7 @@ export function WhatWeDoSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="what-we-do" className="py-24 md:py-32">
+    <section id="what-we-do" className="py-16 md:py-28">
       <div className="container px-4">
         <div ref={ref} className="text-center mb-16">
           <motion.span
@@ -81,26 +81,31 @@ export function WhatWeDoSection() {
             <motion.div
               key={feature.title}
               variants={cardVariants}
-              whileHover={{ 
-                y: -10, 
-                scale: 1.02,
-                transition: { duration: 0.3 }
-              }}
-              className="group p-6 bg-card border border-border rounded-lg card-hover relative overflow-hidden"
+              className="relative"
             >
-              {/* Shimmer effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" 
-                style={{ backgroundSize: '200% 100%' }} 
-              />
-              
-              <motion.div 
-                className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors relative z-10"
-                whileHover={{ rotate: 10, scale: 1.1 }}
+              <motion.div
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  transition: { duration: 0.1 }
+                }}
+                transition={{ duration: 0.2, ease: "easeOut" }} 
+                className="group p-6 bg-card border border-border rounded-lg card-hover relative overflow-hidden h-full"
               >
-                <feature.icon className="w-7 h-7 text-primary" />
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" 
+                  style={{ backgroundSize: '200% 100%' }} 
+                />
+                
+                <motion.div 
+                  className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors relative z-10"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                >
+                  <feature.icon className="w-7 h-7 text-primary" />
+                </motion.div>
+                <h3 className="font-heading font-bold text-xl mb-3 relative z-10">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed relative z-10">{feature.description}</p>
               </motion.div>
-              <h3 className="font-heading font-bold text-xl mb-3 relative z-10">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed relative z-10">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>

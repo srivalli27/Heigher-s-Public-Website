@@ -9,7 +9,7 @@ interface ThunderboltDividerProps {
 export function ThunderboltDivider({ imgSrc, className = "" }: ThunderboltDividerProps) {
   if (imgSrc) {
     return (
-      <div className={`relative flex items-center justify-center w-full py-12 overflow-hidden ${className}`}>
+      <div className={`relative flex items-center justify-center w-full py-4 overflow-hidden ${className}`}>
         {/* Left Line */}
         <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-orange-500/50 to-orange-500" />
         
